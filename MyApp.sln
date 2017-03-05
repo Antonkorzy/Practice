@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp(ASP.NET Application)", "ASP.NET\MyApp(ASP.NET Application).csproj", "{84E8103A-E4D8-4948-9E43-DAFCCA1EEF0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp(Objects)", "Objects\MyApp(Objects).csproj", "{9474E7DA-6268-4CF6-9BD1-0E4122CEFD87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+Debug|Any CPU = Debug|Any CPU
+Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84E8103A-E4D8-4948-9E43-DAFCCA1EEF0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E8103A-E4D8-4948-9E43-DAFCCA1EEF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E8103A-E4D8-4948-9E43-DAFCCA1EEF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E8103A-E4D8-4948-9E43-DAFCCA1EEF0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9474E7DA-6268-4CF6-9BD1-0E4122CEFD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9474E7DA-6268-4CF6-9BD1-0E4122CEFD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9474E7DA-6268-4CF6-9BD1-0E4122CEFD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9474E7DA-6268-4CF6-9BD1-0E4122CEFD87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

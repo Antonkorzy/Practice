@@ -1,0 +1,2210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище HSEModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ApplicationLog">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="64" />
+          <Property Name="EventId" Type="int" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="Severity" Type="varchar" MaxLength="32" />
+          <Property Name="Title" Type="varchar" MaxLength="256" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="MachineName" Type="varchar" MaxLength="32" />
+          <Property Name="AppDomainName" Type="varchar" MaxLength="512" />
+          <Property Name="ProcessId" Type="varchar" MaxLength="256" />
+          <Property Name="ProcessName" Type="varchar" MaxLength="512" />
+          <Property Name="ThreadName" Type="varchar" MaxLength="512" />
+          <Property Name="Win32ThreadId" Type="varchar" MaxLength="128" />
+          <Property Name="Message" Type="varchar" MaxLength="2500" />
+          <Property Name="FormattedMessage" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserKey" Type="uniqueidentifier" />
+          <Property Name="StartedAt" Type="datetime" />
+          <Property Name="LastAccess" Type="datetime" />
+          <Property Name="Closed" Type="bit" />
+        </EntityType>
+        <EntityType Name="STORMAC">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeAccess" Type="varchar" MaxLength="7" />
+          <Property Name="Filter_m0" Type="uniqueidentifier" />
+          <Property Name="Permition_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMAdvLimit">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="User" Type="varchar" MaxLength="255" />
+          <Property Name="Published" Type="bit" />
+          <Property Name="Module" Type="varchar" MaxLength="255" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Value" Type="text" />
+          <Property Name="HotKeyData" Type="int" />
+        </EntityType>
+        <EntityType Name="STORMAG">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" />
+          <Property Name="Pwd" Type="varchar" MaxLength="50" />
+          <Property Name="IsUser" Type="bit" Nullable="false" />
+          <Property Name="IsGroup" Type="bit" Nullable="false" />
+          <Property Name="IsRole" Type="bit" Nullable="false" />
+          <Property Name="ConnString" Type="varchar" MaxLength="255" />
+          <Property Name="Enabled" Type="bit" />
+          <Property Name="Email" Type="varchar" MaxLength="80" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMF">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FilterText" Type="varchar(max)" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="FilterTypeNView" Type="varchar" MaxLength="255" />
+          <Property Name="Subject_m0" Type="uniqueidentifier" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMFILTERDETAIL">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Caption" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DataObjectView" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ConnectMasterProp" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="OwnerConnectProp" Type="varchar" MaxLength="255" />
+          <Property Name="FilterSetting_m0" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STORMFILTERLOOKUP">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DataObjectType" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Container" Type="varchar" MaxLength="255" />
+          <Property Name="ContainerTag" Type="varchar" MaxLength="255" />
+          <Property Name="FieldsToView" Type="varchar" MaxLength="255" />
+          <Property Name="FilterSetting_m0" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STORMFILTERSETTING">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DataObjectView" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STORMI">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="User_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Agent_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMLA">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="View_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Attribute_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMLG">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Group_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="User_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMLO">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Class_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Operation_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMLR">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Agent_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Role_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMLV">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Class_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="View_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMNETLOCKDATA">
+          <Key>
+            <PropertyRef Name="LockKey" />
+          </Key>
+          <Property Name="LockKey" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="LockDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="STORMP">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Subject_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Agent_m0" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMS">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="100" />
+          <Property Name="IsAttribute" Type="bit" Nullable="false" />
+          <Property Name="IsOperation" Type="bit" Nullable="false" />
+          <Property Name="IsView" Type="bit" Nullable="false" />
+          <Property Name="IsClass" Type="bit" Nullable="false" />
+          <Property Name="SharedOper" Type="bit" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="varchar" MaxLength="255" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="Editor" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMSETTINGS">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Module" Type="varchar" MaxLength="1000" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Value" Type="text" />
+          <Property Name="User" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STORMWEBSEARCH">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="PresentView" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DetailedView" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FilterSetting_m0" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSetting">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AppName" Type="varchar" MaxLength="256" />
+          <Property Name="UserName" Type="varchar" MaxLength="512" />
+          <Property Name="UserGuid" Type="uniqueidentifier" />
+          <Property Name="ModuleName" Type="varchar" MaxLength="1024" />
+          <Property Name="ModuleGuid" Type="uniqueidentifier" />
+          <Property Name="SettName" Type="varchar" MaxLength="256" />
+          <Property Name="SettGuid" Type="uniqueidentifier" />
+          <Property Name="SettLastAccessTime" Type="datetime" />
+          <Property Name="StrVal" Type="varchar" MaxLength="256" />
+          <Property Name="TxtVal" Type="varchar(max)" />
+          <Property Name="IntVal" Type="int" />
+          <Property Name="BoolVal" Type="bit" />
+          <Property Name="GuidVal" Type="uniqueidentifier" />
+          <Property Name="DecimalVal" Type="decimal" Precision="20" Scale="10" />
+          <Property Name="DateTimeVal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ЗаявкаНаПрактику">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Информация" Type="varchar" MaxLength="255" />
+          <Property Name="ДатаНачала" Type="datetime" />
+          <Property Name="ДатаКонца" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Компания">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Название" Type="varchar" MaxLength="255" />
+          <Property Name="Информация" Type="varchar" MaxLength="255" />
+          <Property Name="Ссылка" Type="varchar" MaxLength="255" />
+          <Property Name="ПрактикиИнфо" Type="varchar" MaxLength="255" />
+          <Property Name="Практики" Type="bit" />
+        </EntityType>
+        <EntityType Name="Курс">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Названиее" Type="varchar" MaxLength="255" />
+          <Property Name="Подготовка" Type="varchar" MaxLength="255" />
+          <Property Name="Год" Type="tinyint" />
+          <Property Name="ОУ" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="ОУ">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Название" Type="varchar" MaxLength="255" />
+          <Property Name="Информация" Type="varchar" MaxLength="255" />
+          <Property Name="Ссылка" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Практика">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Информация" Type="varchar" MaxLength="255" />
+          <Property Name="ДатаНачала" Type="datetime" />
+          <Property Name="ДатаКонца" Type="datetime" />
+          <Property Name="Состояние" Type="varchar" MaxLength="18" />
+          <Property Name="ЗаявкаНаПрактику" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Компания" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="ПредставительКомпании">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Имя" Type="varchar" MaxLength="255" />
+          <Property Name="Почта" Type="varchar" MaxLength="255" />
+          <Property Name="Телефон" Type="varchar" MaxLength="255" />
+          <Property Name="Должность" Type="varchar" MaxLength="255" />
+          <Property Name="Компания" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="ПредставительОУ">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Имя" Type="varchar" MaxLength="255" />
+          <Property Name="Почта" Type="varchar" MaxLength="255" />
+          <Property Name="Телефон" Type="varchar" MaxLength="255" />
+          <Property Name="Должность" Type="varchar" MaxLength="255" />
+          <Property Name="ОУ" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Студент">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ФИО" Type="varchar" MaxLength="255" />
+          <Property Name="НеобходимостьПрактики" Type="varchar" MaxLength="255" />
+          <Property Name="Подготовка" Type="varchar" MaxLength="255" />
+          <Property Name="Практика" Type="uniqueidentifier" />
+          <Property Name="ЗаявкаНаПрактику" Type="uniqueidentifier" />
+          <Property Name="Курс" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "HSE.sys.database_firewall_rules" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="STORMAC_FSTORMF_0">
+          <End Role="STORMF" Type="Self.STORMF" Multiplicity="0..1" />
+          <End Role="STORMAC" Type="Self.STORMAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMF">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMAC">
+              <PropertyRef Name="Filter_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMAC_FSTORMP_0">
+          <End Role="STORMP" Type="Self.STORMP" Multiplicity="1" />
+          <End Role="STORMAC" Type="Self.STORMAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMP">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMAC">
+              <PropertyRef Name="Permition_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMF_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="0..1" />
+          <End Role="STORMF" Type="Self.STORMF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMF">
+              <PropertyRef Name="Subject_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMFILTERDETAIL_FSTORMFILTERSETTING_0">
+          <End Role="STORMFILTERSETTING" Type="Self.STORMFILTERSETTING" Multiplicity="1" />
+          <End Role="STORMFILTERDETAIL" Type="Self.STORMFILTERDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMFILTERSETTING">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMFILTERDETAIL">
+              <PropertyRef Name="FilterSetting_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMFILTERLOOKUP_FSTORMFILTERSETTING_0">
+          <End Role="STORMFILTERSETTING" Type="Self.STORMFILTERSETTING" Multiplicity="1" />
+          <End Role="STORMFILTERLOOKUP" Type="Self.STORMFILTERLOOKUP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMFILTERSETTING">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMFILTERLOOKUP">
+              <PropertyRef Name="FilterSetting_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMI_FSTORMAG_0">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMI" Type="Self.STORMI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMI">
+              <PropertyRef Name="User_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMI_FSTORMAG_1">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMI" Type="Self.STORMI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMI">
+              <PropertyRef Name="Agent_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLA_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLA" Type="Self.STORMLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLA">
+              <PropertyRef Name="View_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLA_FSTORMS_1">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLA" Type="Self.STORMLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLA">
+              <PropertyRef Name="Attribute_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLG_FSTORMAG_0">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMLG" Type="Self.STORMLG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLG">
+              <PropertyRef Name="Group_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLG_FSTORMAG_1">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMLG" Type="Self.STORMLG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLG">
+              <PropertyRef Name="User_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLO_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLO" Type="Self.STORMLO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLO">
+              <PropertyRef Name="Class_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLO_FSTORMS_1">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLO" Type="Self.STORMLO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLO">
+              <PropertyRef Name="Operation_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLR_FSTORMAG_0">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMLR" Type="Self.STORMLR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLR">
+              <PropertyRef Name="Agent_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLR_FSTORMAG_1">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMLR" Type="Self.STORMLR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLR">
+              <PropertyRef Name="Role_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLV_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLV" Type="Self.STORMLV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLV">
+              <PropertyRef Name="Class_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLV_FSTORMS_1">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLV" Type="Self.STORMLV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLV">
+              <PropertyRef Name="View_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMP_FSTORMAG_0">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMP" Type="Self.STORMP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMP">
+              <PropertyRef Name="Agent_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMP_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMP" Type="Self.STORMP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMP">
+              <PropertyRef Name="Subject_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMWEBSEARCH_FSTORMFILTERSETTING_0">
+          <End Role="STORMFILTERSETTING" Type="Self.STORMFILTERSETTING" Multiplicity="1" />
+          <End Role="STORMWEBSEARCH" Type="Self.STORMWEBSEARCH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMFILTERSETTING">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMWEBSEARCH">
+              <PropertyRef Name="FilterSetting_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Курс_FОУ_0">
+          <End Role="ОУ" Type="Self.ОУ" Multiplicity="0..1" />
+          <End Role="Курс" Type="Self.Курс" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ОУ">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Курс">
+              <PropertyRef Name="ОУ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Практика_FЗаявкаНаПрактику_0">
+          <End Role="ЗаявкаНаПрактику" Type="Self.ЗаявкаНаПрактику" Multiplicity="1" />
+          <End Role="Практика" Type="Self.Практика" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ЗаявкаНаПрактику">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Практика">
+              <PropertyRef Name="ЗаявкаНаПрактику" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Практика_FКомпания_0">
+          <End Role="Компания" Type="Self.Компания" Multiplicity="0..1" />
+          <End Role="Практика" Type="Self.Практика" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Компания">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Практика">
+              <PropertyRef Name="Компания" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ПредставительКомпании_FКомпания_0">
+          <End Role="Компания" Type="Self.Компания" Multiplicity="0..1" />
+          <End Role="ПредставительКомпании" Type="Self.ПредставительКомпании" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Компания">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="ПредставительКомпании">
+              <PropertyRef Name="Компания" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ПредставительОУ_FОУ_0">
+          <End Role="ОУ" Type="Self.ОУ" Multiplicity="0..1" />
+          <End Role="ПредставительОУ" Type="Self.ПредставительОУ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ОУ">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="ПредставительОУ">
+              <PropertyRef Name="ОУ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Студент_FЗаявкаНаПрактику_0">
+          <End Role="ЗаявкаНаПрактику" Type="Self.ЗаявкаНаПрактику" Multiplicity="0..1" />
+          <End Role="Студент" Type="Self.Студент" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ЗаявкаНаПрактику">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Студент">
+              <PropertyRef Name="ЗаявкаНаПрактику" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Студент_FКурс_0">
+          <End Role="Курс" Type="Self.Курс" Multiplicity="1" />
+          <End Role="Студент" Type="Self.Студент" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Курс">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Студент">
+              <PropertyRef Name="Курс" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Студент_FПрактика_0">
+          <End Role="Практика" Type="Self.Практика" Multiplicity="0..1" />
+          <End Role="Студент" Type="Self.Студент" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Практика">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Студент">
+              <PropertyRef Name="Практика" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище HSEModelContainer">
+          <EntitySet Name="ApplicationLog" EntityType="Self.ApplicationLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMAC" EntityType="Self.STORMAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMAdvLimit" EntityType="Self.STORMAdvLimit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMAG" EntityType="Self.STORMAG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMF" EntityType="Self.STORMF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMFILTERDETAIL" EntityType="Self.STORMFILTERDETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMFILTERLOOKUP" EntityType="Self.STORMFILTERLOOKUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMFILTERSETTING" EntityType="Self.STORMFILTERSETTING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMI" EntityType="Self.STORMI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMLA" EntityType="Self.STORMLA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMLG" EntityType="Self.STORMLG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMLO" EntityType="Self.STORMLO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMLR" EntityType="Self.STORMLR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMLV" EntityType="Self.STORMLV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMNETLOCKDATA" EntityType="Self.STORMNETLOCKDATA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMP" EntityType="Self.STORMP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMS" EntityType="Self.STORMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMSETTINGS" EntityType="Self.STORMSETTINGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORMWEBSEARCH" EntityType="Self.STORMWEBSEARCH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSetting" EntityType="Self.UserSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ЗаявкаНаПрактику" EntityType="Self.ЗаявкаНаПрактику" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Компания" EntityType="Self.Компания" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Курс" EntityType="Self.Курс" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ОУ" EntityType="Self.ОУ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Практика" EntityType="Self.Практика" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПредставительКомпании" EntityType="Self.ПредставительКомпании" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПредставительОУ" EntityType="Self.ПредставительОУ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Студент" EntityType="Self.Студент" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="STORMAC_FSTORMF_0" Association="Self.STORMAC_FSTORMF_0">
+            <End Role="STORMF" EntitySet="STORMF" />
+            <End Role="STORMAC" EntitySet="STORMAC" />
+          </AssociationSet>
+          <AssociationSet Name="STORMAC_FSTORMP_0" Association="Self.STORMAC_FSTORMP_0">
+            <End Role="STORMP" EntitySet="STORMP" />
+            <End Role="STORMAC" EntitySet="STORMAC" />
+          </AssociationSet>
+          <AssociationSet Name="STORMF_FSTORMS_0" Association="Self.STORMF_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMF" EntitySet="STORMF" />
+          </AssociationSet>
+          <AssociationSet Name="STORMFILTERDETAIL_FSTORMFILTERSETTING_0" Association="Self.STORMFILTERDETAIL_FSTORMFILTERSETTING_0">
+            <End Role="STORMFILTERSETTING" EntitySet="STORMFILTERSETTING" />
+            <End Role="STORMFILTERDETAIL" EntitySet="STORMFILTERDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="STORMFILTERLOOKUP_FSTORMFILTERSETTING_0" Association="Self.STORMFILTERLOOKUP_FSTORMFILTERSETTING_0">
+            <End Role="STORMFILTERSETTING" EntitySet="STORMFILTERSETTING" />
+            <End Role="STORMFILTERLOOKUP" EntitySet="STORMFILTERLOOKUP" />
+          </AssociationSet>
+          <AssociationSet Name="STORMI_FSTORMAG_0" Association="Self.STORMI_FSTORMAG_0">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMI" EntitySet="STORMI" />
+          </AssociationSet>
+          <AssociationSet Name="STORMI_FSTORMAG_1" Association="Self.STORMI_FSTORMAG_1">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMI" EntitySet="STORMI" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLA_FSTORMS_0" Association="Self.STORMLA_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLA" EntitySet="STORMLA" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLA_FSTORMS_1" Association="Self.STORMLA_FSTORMS_1">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLA" EntitySet="STORMLA" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLG_FSTORMAG_0" Association="Self.STORMLG_FSTORMAG_0">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMLG" EntitySet="STORMLG" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLG_FSTORMAG_1" Association="Self.STORMLG_FSTORMAG_1">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMLG" EntitySet="STORMLG" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLO_FSTORMS_0" Association="Self.STORMLO_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLO" EntitySet="STORMLO" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLO_FSTORMS_1" Association="Self.STORMLO_FSTORMS_1">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLO" EntitySet="STORMLO" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLR_FSTORMAG_0" Association="Self.STORMLR_FSTORMAG_0">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMLR" EntitySet="STORMLR" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLR_FSTORMAG_1" Association="Self.STORMLR_FSTORMAG_1">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMLR" EntitySet="STORMLR" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLV_FSTORMS_0" Association="Self.STORMLV_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLV" EntitySet="STORMLV" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLV_FSTORMS_1" Association="Self.STORMLV_FSTORMS_1">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLV" EntitySet="STORMLV" />
+          </AssociationSet>
+          <AssociationSet Name="STORMP_FSTORMAG_0" Association="Self.STORMP_FSTORMAG_0">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMP" EntitySet="STORMP" />
+          </AssociationSet>
+          <AssociationSet Name="STORMP_FSTORMS_0" Association="Self.STORMP_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMP" EntitySet="STORMP" />
+          </AssociationSet>
+          <AssociationSet Name="STORMWEBSEARCH_FSTORMFILTERSETTING_0" Association="Self.STORMWEBSEARCH_FSTORMFILTERSETTING_0">
+            <End Role="STORMFILTERSETTING" EntitySet="STORMFILTERSETTING" />
+            <End Role="STORMWEBSEARCH" EntitySet="STORMWEBSEARCH" />
+          </AssociationSet>
+          <AssociationSet Name="Курс_FОУ_0" Association="Self.Курс_FОУ_0">
+            <End Role="ОУ" EntitySet="ОУ" />
+            <End Role="Курс" EntitySet="Курс" />
+          </AssociationSet>
+          <AssociationSet Name="Практика_FЗаявкаНаПрактику_0" Association="Self.Практика_FЗаявкаНаПрактику_0">
+            <End Role="ЗаявкаНаПрактику" EntitySet="ЗаявкаНаПрактику" />
+            <End Role="Практика" EntitySet="Практика" />
+          </AssociationSet>
+          <AssociationSet Name="Практика_FКомпания_0" Association="Self.Практика_FКомпания_0">
+            <End Role="Компания" EntitySet="Компания" />
+            <End Role="Практика" EntitySet="Практика" />
+          </AssociationSet>
+          <AssociationSet Name="ПредставительКомпании_FКомпания_0" Association="Self.ПредставительКомпании_FКомпания_0">
+            <End Role="Компания" EntitySet="Компания" />
+            <End Role="ПредставительКомпании" EntitySet="ПредставительКомпании" />
+          </AssociationSet>
+          <AssociationSet Name="ПредставительОУ_FОУ_0" Association="Self.ПредставительОУ_FОУ_0">
+            <End Role="ОУ" EntitySet="ОУ" />
+            <End Role="ПредставительОУ" EntitySet="ПредставительОУ" />
+          </AssociationSet>
+          <AssociationSet Name="Студент_FЗаявкаНаПрактику_0" Association="Self.Студент_FЗаявкаНаПрактику_0">
+            <End Role="ЗаявкаНаПрактику" EntitySet="ЗаявкаНаПрактику" />
+            <End Role="Студент" EntitySet="Студент" />
+          </AssociationSet>
+          <AssociationSet Name="Студент_FКурс_0" Association="Self.Студент_FКурс_0">
+            <End Role="Курс" EntitySet="Курс" />
+            <End Role="Студент" EntitySet="Студент" />
+          </AssociationSet>
+          <AssociationSet Name="Студент_FПрактика_0" Association="Self.Студент_FПрактика_0">
+            <End Role="Практика" EntitySet="Практика" />
+            <End Role="Студент" EntitySet="Студент" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HSEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ApplicationLog">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="EventId" Type="Int32" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="Severity" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="MachineName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="AppDomainName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessId" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ThreadName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="Win32ThreadId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="FormattedMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="UserKey" Type="Guid" />
+          <Property Name="StartedAt" Type="DateTime" Precision="3" />
+          <Property Name="LastAccess" Type="DateTime" Precision="3" />
+          <Property Name="Closed" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="STORMAC">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="TypeAccess" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Filter_m0" Type="Guid" />
+          <Property Name="Permition_m0" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMF" Relationship="Self.STORMAC_FSTORMF_0" FromRole="STORMAC" ToRole="STORMF" />
+          <NavigationProperty Name="STORMP" Relationship="Self.STORMAC_FSTORMP_0" FromRole="STORMAC" ToRole="STORMP" />
+        </EntityType>
+        <EntityType Name="STORMAdvLimit">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="User" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Published" Type="Boolean" />
+          <Property Name="Module" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HotKeyData" Type="Int32" />
+        </EntityType>
+        <EntityType Name="STORMAG">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsUser" Type="Boolean" Nullable="false" />
+          <Property Name="IsGroup" Type="Boolean" Nullable="false" />
+          <Property Name="IsRole" Type="Boolean" Nullable="false" />
+          <Property Name="ConnString" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Enabled" Type="Boolean" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMI" Relationship="Self.STORMI_FSTORMAG_0" FromRole="STORMAG" ToRole="STORMI" />
+          <NavigationProperty Name="STORMI1" Relationship="Self.STORMI_FSTORMAG_1" FromRole="STORMAG" ToRole="STORMI" />
+          <NavigationProperty Name="STORMLG" Relationship="Self.STORMLG_FSTORMAG_0" FromRole="STORMAG" ToRole="STORMLG" />
+          <NavigationProperty Name="STORMLG1" Relationship="Self.STORMLG_FSTORMAG_1" FromRole="STORMAG" ToRole="STORMLG" />
+          <NavigationProperty Name="STORMLR" Relationship="Self.STORMLR_FSTORMAG_0" FromRole="STORMAG" ToRole="STORMLR" />
+          <NavigationProperty Name="STORMLR1" Relationship="Self.STORMLR_FSTORMAG_1" FromRole="STORMAG" ToRole="STORMLR" />
+          <NavigationProperty Name="STORMP" Relationship="Self.STORMP_FSTORMAG_0" FromRole="STORMAG" ToRole="STORMP" />
+        </EntityType>
+        <EntityType Name="STORMF">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="FilterText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FilterTypeNView" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Subject_m0" Type="Guid" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMAC" Relationship="Self.STORMAC_FSTORMF_0" FromRole="STORMF" ToRole="STORMAC" />
+          <NavigationProperty Name="STORMS" Relationship="Self.STORMF_FSTORMS_0" FromRole="STORMF" ToRole="STORMS" />
+        </EntityType>
+        <EntityType Name="STORMFILTERDETAIL">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Caption" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataObjectView" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConnectMasterProp" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OwnerConnectProp" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FilterSetting_m0" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="STORMFILTERSETTING" Relationship="Self.STORMFILTERDETAIL_FSTORMFILTERSETTING_0" FromRole="STORMFILTERDETAIL" ToRole="STORMFILTERSETTING" />
+        </EntityType>
+        <EntityType Name="STORMFILTERLOOKUP">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="DataObjectType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Container" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ContainerTag" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FieldsToView" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FilterSetting_m0" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="STORMFILTERSETTING" Relationship="Self.STORMFILTERLOOKUP_FSTORMFILTERSETTING_0" FromRole="STORMFILTERLOOKUP" ToRole="STORMFILTERSETTING" />
+        </EntityType>
+        <EntityType Name="STORMFILTERSETTING">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataObjectView" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="STORMFILTERDETAIL" Relationship="Self.STORMFILTERDETAIL_FSTORMFILTERSETTING_0" FromRole="STORMFILTERSETTING" ToRole="STORMFILTERDETAIL" />
+          <NavigationProperty Name="STORMFILTERLOOKUP" Relationship="Self.STORMFILTERLOOKUP_FSTORMFILTERSETTING_0" FromRole="STORMFILTERSETTING" ToRole="STORMFILTERLOOKUP" />
+          <NavigationProperty Name="STORMWEBSEARCH" Relationship="Self.STORMWEBSEARCH_FSTORMFILTERSETTING_0" FromRole="STORMFILTERSETTING" ToRole="STORMWEBSEARCH" />
+        </EntityType>
+        <EntityType Name="STORMI">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="User_m0" Type="Guid" Nullable="false" />
+          <Property Name="Agent_m0" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMAG" Relationship="Self.STORMI_FSTORMAG_0" FromRole="STORMI" ToRole="STORMAG" />
+          <NavigationProperty Name="STORMAG1" Relationship="Self.STORMI_FSTORMAG_1" FromRole="STORMI" ToRole="STORMAG" />
+        </EntityType>
+        <EntityType Name="STORMLA">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="View_m0" Type="Guid" Nullable="false" />
+          <Property Name="Attribute_m0" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMS" Relationship="Self.STORMLA_FSTORMS_0" FromRole="STORMLA" ToRole="STORMS" />
+          <NavigationProperty Name="STORMS1" Relationship="Self.STORMLA_FSTORMS_1" FromRole="STORMLA" ToRole="STORMS" />
+        </EntityType>
+        <EntityType Name="STORMLG">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Group_m0" Type="Guid" Nullable="false" />
+          <Property Name="User_m0" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMAG" Relationship="Self.STORMLG_FSTORMAG_0" FromRole="STORMLG" ToRole="STORMAG" />
+          <NavigationProperty Name="STORMAG1" Relationship="Self.STORMLG_FSTORMAG_1" FromRole="STORMLG" ToRole="STORMAG" />
+        </EntityType>
+        <EntityType Name="STORMLO">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Class_m0" Type="Guid" Nullable="false" />
+          <Property Name="Operation_m0" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMS" Relationship="Self.STORMLO_FSTORMS_0" FromRole="STORMLO" ToRole="STORMS" />
+          <NavigationProperty Name="STORMS1" Relationship="Self.STORMLO_FSTORMS_1" FromRole="STORMLO" ToRole="STORMS" />
+        </EntityType>
+        <EntityType Name="STORMLR">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Agent_m0" Type="Guid" Nullable="false" />
+          <Property Name="Role_m0" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMAG" Relationship="Self.STORMLR_FSTORMAG_0" FromRole="STORMLR" ToRole="STORMAG" />
+          <NavigationProperty Name="STORMAG1" Relationship="Self.STORMLR_FSTORMAG_1" FromRole="STORMLR" ToRole="STORMAG" />
+        </EntityType>
+        <EntityType Name="STORMLV">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Class_m0" Type="Guid" Nullable="false" />
+          <Property Name="View_m0" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMS" Relationship="Self.STORMLV_FSTORMS_0" FromRole="STORMLV" ToRole="STORMS" />
+          <NavigationProperty Name="STORMS1" Relationship="Self.STORMLV_FSTORMS_1" FromRole="STORMLV" ToRole="STORMS" />
+        </EntityType>
+        <EntityType Name="STORMNETLOCKDATA">
+          <Key>
+            <PropertyRef Name="LockKey" />
+          </Key>
+          <Property Name="LockKey" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LockDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="STORMP">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Subject_m0" Type="Guid" Nullable="false" />
+          <Property Name="Agent_m0" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMAC" Relationship="Self.STORMAC_FSTORMP_0" FromRole="STORMP" ToRole="STORMAC" />
+          <NavigationProperty Name="STORMAG" Relationship="Self.STORMP_FSTORMAG_0" FromRole="STORMP" ToRole="STORMAG" />
+          <NavigationProperty Name="STORMS" Relationship="Self.STORMP_FSTORMS_0" FromRole="STORMP" ToRole="STORMS" />
+        </EntityType>
+        <EntityType Name="STORMS">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsAttribute" Type="Boolean" Nullable="false" />
+          <Property Name="IsOperation" Type="Boolean" Nullable="false" />
+          <Property Name="IsView" Type="Boolean" Nullable="false" />
+          <Property Name="IsClass" Type="Boolean" Nullable="false" />
+          <Property Name="SharedOper" Type="Boolean" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STORMF" Relationship="Self.STORMF_FSTORMS_0" FromRole="STORMS" ToRole="STORMF" />
+          <NavigationProperty Name="STORMLA" Relationship="Self.STORMLA_FSTORMS_0" FromRole="STORMS" ToRole="STORMLA" />
+          <NavigationProperty Name="STORMLA1" Relationship="Self.STORMLA_FSTORMS_1" FromRole="STORMS" ToRole="STORMLA" />
+          <NavigationProperty Name="STORMLO" Relationship="Self.STORMLO_FSTORMS_0" FromRole="STORMS" ToRole="STORMLO" />
+          <NavigationProperty Name="STORMLO1" Relationship="Self.STORMLO_FSTORMS_1" FromRole="STORMS" ToRole="STORMLO" />
+          <NavigationProperty Name="STORMLV" Relationship="Self.STORMLV_FSTORMS_0" FromRole="STORMS" ToRole="STORMLV" />
+          <NavigationProperty Name="STORMLV1" Relationship="Self.STORMLV_FSTORMS_1" FromRole="STORMS" ToRole="STORMLV" />
+          <NavigationProperty Name="STORMP" Relationship="Self.STORMP_FSTORMS_0" FromRole="STORMS" ToRole="STORMP" />
+        </EntityType>
+        <EntityType Name="STORMSETTINGS">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Module" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="STORMWEBSEARCH">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="PresentView" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DetailedView" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FilterSetting_m0" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="STORMFILTERSETTING" Relationship="Self.STORMWEBSEARCH_FSTORMFILTERSETTING_0" FromRole="STORMWEBSEARCH" ToRole="STORMFILTERSETTING" />
+        </EntityType>
+        <EntityType Name="UserSetting">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="AppName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="UserGuid" Type="Guid" />
+          <Property Name="ModuleName" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="ModuleGuid" Type="Guid" />
+          <Property Name="SettName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="SettGuid" Type="Guid" />
+          <Property Name="SettLastAccessTime" Type="DateTime" Precision="3" />
+          <Property Name="StrVal" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="TxtVal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IntVal" Type="Int32" />
+          <Property Name="BoolVal" Type="Boolean" />
+          <Property Name="GuidVal" Type="Guid" />
+          <Property Name="DecimalVal" Type="Decimal" Precision="20" Scale="10" />
+          <Property Name="DateTimeVal" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ЗаявкаНаПрактику">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Информация" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ДатаНачала" Type="DateTime" Precision="3" />
+          <Property Name="ДатаКонца" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Практика" Relationship="Self.Практика_FЗаявкаНаПрактику_0" FromRole="ЗаявкаНаПрактику" ToRole="Практика" />
+          <NavigationProperty Name="Студент" Relationship="Self.Студент_FЗаявкаНаПрактику_0" FromRole="ЗаявкаНаПрактику" ToRole="Студент" />
+        </EntityType>
+        <EntityType Name="Компания">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Информация" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Ссылка" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ПрактикиИнфо" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Практики" Type="Boolean" />
+          <NavigationProperty Name="Практика" Relationship="Self.Практика_FКомпания_0" FromRole="Компания" ToRole="Практика" />
+          <NavigationProperty Name="ПредставительКомпании" Relationship="Self.ПредставительКомпании_FКомпания_0" FromRole="Компания" ToRole="ПредставительКомпании" />
+        </EntityType>
+        <EntityType Name="Курс">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Названиее" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Подготовка" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Год" Type="Byte" />
+          <Property Name="ОУ" Type="Guid" />
+          <NavigationProperty Name="ОУ1" Relationship="Self.Курс_FОУ_0" FromRole="Курс" ToRole="ОУ" />
+          <NavigationProperty Name="Студент" Relationship="Self.Студент_FКурс_0" FromRole="Курс" ToRole="Студент" />
+        </EntityType>
+        <EntityType Name="ОУ">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Информация" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Ссылка" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Курс" Relationship="Self.Курс_FОУ_0" FromRole="ОУ" ToRole="Курс" />
+          <NavigationProperty Name="ПредставительОУ" Relationship="Self.ПредставительОУ_FОУ_0" FromRole="ОУ" ToRole="ПредставительОУ" />
+        </EntityType>
+        <EntityType Name="Практика">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Информация" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ДатаНачала" Type="DateTime" Precision="3" />
+          <Property Name="ДатаКонца" Type="DateTime" Precision="3" />
+          <Property Name="Состояние" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="ЗаявкаНаПрактику" Type="Guid" Nullable="false" />
+          <Property Name="Компания" Type="Guid" />
+          <NavigationProperty Name="ЗаявкаНаПрактику1" Relationship="Self.Практика_FЗаявкаНаПрактику_0" FromRole="Практика" ToRole="ЗаявкаНаПрактику" />
+          <NavigationProperty Name="Компания1" Relationship="Self.Практика_FКомпания_0" FromRole="Практика" ToRole="Компания" />
+          <NavigationProperty Name="Студент" Relationship="Self.Студент_FПрактика_0" FromRole="Практика" ToRole="Студент" />
+        </EntityType>
+        <EntityType Name="ПредставительКомпании">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Имя" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Почта" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Телефон" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Должность" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Компания" Type="Guid" />
+          <NavigationProperty Name="Компания1" Relationship="Self.ПредставительКомпании_FКомпания_0" FromRole="ПредставительКомпании" ToRole="Компания" />
+        </EntityType>
+        <EntityType Name="ПредставительОУ">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="Имя" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Почта" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Телефон" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Должность" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ОУ" Type="Guid" />
+          <NavigationProperty Name="ОУ1" Relationship="Self.ПредставительОУ_FОУ_0" FromRole="ПредставительОУ" ToRole="ОУ" />
+        </EntityType>
+        <EntityType Name="Студент">
+          <Key>
+            <PropertyRef Name="primaryKey" />
+          </Key>
+          <Property Name="primaryKey" Type="Guid" Nullable="false" />
+          <Property Name="ФИО" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="НеобходимостьПрактики" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Подготовка" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Практика" Type="Guid" />
+          <Property Name="ЗаявкаНаПрактику" Type="Guid" />
+          <Property Name="Курс" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="ЗаявкаНаПрактику1" Relationship="Self.Студент_FЗаявкаНаПрактику_0" FromRole="Студент" ToRole="ЗаявкаНаПрактику" />
+          <NavigationProperty Name="Курс1" Relationship="Self.Студент_FКурс_0" FromRole="Студент" ToRole="Курс" />
+          <NavigationProperty Name="Практика1" Relationship="Self.Студент_FПрактика_0" FromRole="Студент" ToRole="Практика" />
+        </EntityType>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="STORMAC_FSTORMF_0">
+          <End Role="STORMF" Type="Self.STORMF" Multiplicity="0..1" />
+          <End Role="STORMAC" Type="Self.STORMAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMF">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMAC">
+              <PropertyRef Name="Filter_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMAC_FSTORMP_0">
+          <End Role="STORMP" Type="Self.STORMP" Multiplicity="1" />
+          <End Role="STORMAC" Type="Self.STORMAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMP">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMAC">
+              <PropertyRef Name="Permition_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMI_FSTORMAG_0">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMI" Type="Self.STORMI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMI">
+              <PropertyRef Name="User_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMI_FSTORMAG_1">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMI" Type="Self.STORMI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMI">
+              <PropertyRef Name="Agent_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLG_FSTORMAG_0">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMLG" Type="Self.STORMLG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLG">
+              <PropertyRef Name="Group_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLG_FSTORMAG_1">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMLG" Type="Self.STORMLG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLG">
+              <PropertyRef Name="User_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLR_FSTORMAG_0">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMLR" Type="Self.STORMLR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLR">
+              <PropertyRef Name="Agent_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLR_FSTORMAG_1">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMLR" Type="Self.STORMLR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLR">
+              <PropertyRef Name="Role_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMP_FSTORMAG_0">
+          <End Role="STORMAG" Type="Self.STORMAG" Multiplicity="1" />
+          <End Role="STORMP" Type="Self.STORMP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMAG">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMP">
+              <PropertyRef Name="Agent_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMF_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="0..1" />
+          <End Role="STORMF" Type="Self.STORMF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMF">
+              <PropertyRef Name="Subject_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMFILTERDETAIL_FSTORMFILTERSETTING_0">
+          <End Role="STORMFILTERSETTING" Type="Self.STORMFILTERSETTING" Multiplicity="1" />
+          <End Role="STORMFILTERDETAIL" Type="Self.STORMFILTERDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMFILTERSETTING">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMFILTERDETAIL">
+              <PropertyRef Name="FilterSetting_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMFILTERLOOKUP_FSTORMFILTERSETTING_0">
+          <End Role="STORMFILTERSETTING" Type="Self.STORMFILTERSETTING" Multiplicity="1" />
+          <End Role="STORMFILTERLOOKUP" Type="Self.STORMFILTERLOOKUP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMFILTERSETTING">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMFILTERLOOKUP">
+              <PropertyRef Name="FilterSetting_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMWEBSEARCH_FSTORMFILTERSETTING_0">
+          <End Role="STORMFILTERSETTING" Type="Self.STORMFILTERSETTING" Multiplicity="1" />
+          <End Role="STORMWEBSEARCH" Type="Self.STORMWEBSEARCH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMFILTERSETTING">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMWEBSEARCH">
+              <PropertyRef Name="FilterSetting_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLA_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLA" Type="Self.STORMLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLA">
+              <PropertyRef Name="View_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLA_FSTORMS_1">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLA" Type="Self.STORMLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLA">
+              <PropertyRef Name="Attribute_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLO_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLO" Type="Self.STORMLO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLO">
+              <PropertyRef Name="Class_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLO_FSTORMS_1">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLO" Type="Self.STORMLO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLO">
+              <PropertyRef Name="Operation_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLV_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLV" Type="Self.STORMLV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLV">
+              <PropertyRef Name="Class_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMLV_FSTORMS_1">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMLV" Type="Self.STORMLV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMLV">
+              <PropertyRef Name="View_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STORMP_FSTORMS_0">
+          <End Role="STORMS" Type="Self.STORMS" Multiplicity="1" />
+          <End Role="STORMP" Type="Self.STORMP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORMS">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="STORMP">
+              <PropertyRef Name="Subject_m0" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Практика_FЗаявкаНаПрактику_0">
+          <End Role="ЗаявкаНаПрактику" Type="Self.ЗаявкаНаПрактику" Multiplicity="1" />
+          <End Role="Практика" Type="Self.Практика" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ЗаявкаНаПрактику">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Практика">
+              <PropertyRef Name="ЗаявкаНаПрактику" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Студент_FЗаявкаНаПрактику_0">
+          <End Role="ЗаявкаНаПрактику" Type="Self.ЗаявкаНаПрактику" Multiplicity="0..1" />
+          <End Role="Студент" Type="Self.Студент" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ЗаявкаНаПрактику">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Студент">
+              <PropertyRef Name="ЗаявкаНаПрактику" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Практика_FКомпания_0">
+          <End Role="Компания" Type="Self.Компания" Multiplicity="0..1" />
+          <End Role="Практика" Type="Self.Практика" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Компания">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Практика">
+              <PropertyRef Name="Компания" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ПредставительКомпании_FКомпания_0">
+          <End Role="Компания" Type="Self.Компания" Multiplicity="0..1" />
+          <End Role="ПредставительКомпании" Type="Self.ПредставительКомпании" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Компания">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="ПредставительКомпании">
+              <PropertyRef Name="Компания" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Курс_FОУ_0">
+          <End Role="ОУ" Type="Self.ОУ" Multiplicity="0..1" />
+          <End Role="Курс" Type="Self.Курс" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ОУ">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Курс">
+              <PropertyRef Name="ОУ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Студент_FКурс_0">
+          <End Role="Курс" Type="Self.Курс" Multiplicity="1" />
+          <End Role="Студент" Type="Self.Студент" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Курс">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Студент">
+              <PropertyRef Name="Курс" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ПредставительОУ_FОУ_0">
+          <End Role="ОУ" Type="Self.ОУ" Multiplicity="0..1" />
+          <End Role="ПредставительОУ" Type="Self.ПредставительОУ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ОУ">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="ПредставительОУ">
+              <PropertyRef Name="ОУ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Студент_FПрактика_0">
+          <End Role="Практика" Type="Self.Практика" Multiplicity="0..1" />
+          <End Role="Студент" Type="Self.Студент" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Практика">
+              <PropertyRef Name="primaryKey" />
+            </Principal>
+            <Dependent Role="Студент">
+              <PropertyRef Name="Практика" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HSEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ApplicationLog" EntityType="Self.ApplicationLog" />
+          <EntitySet Name="Session" EntityType="Self.Session" />
+          <EntitySet Name="STORMAC" EntityType="Self.STORMAC" />
+          <EntitySet Name="STORMAdvLimit" EntityType="Self.STORMAdvLimit" />
+          <EntitySet Name="STORMAG" EntityType="Self.STORMAG" />
+          <EntitySet Name="STORMF" EntityType="Self.STORMF" />
+          <EntitySet Name="STORMFILTERDETAIL" EntityType="Self.STORMFILTERDETAIL" />
+          <EntitySet Name="STORMFILTERLOOKUP" EntityType="Self.STORMFILTERLOOKUP" />
+          <EntitySet Name="STORMFILTERSETTING" EntityType="Self.STORMFILTERSETTING" />
+          <EntitySet Name="STORMI" EntityType="Self.STORMI" />
+          <EntitySet Name="STORMLA" EntityType="Self.STORMLA" />
+          <EntitySet Name="STORMLG" EntityType="Self.STORMLG" />
+          <EntitySet Name="STORMLO" EntityType="Self.STORMLO" />
+          <EntitySet Name="STORMLR" EntityType="Self.STORMLR" />
+          <EntitySet Name="STORMLV" EntityType="Self.STORMLV" />
+          <EntitySet Name="STORMNETLOCKDATA" EntityType="Self.STORMNETLOCKDATA" />
+          <EntitySet Name="STORMP" EntityType="Self.STORMP" />
+          <EntitySet Name="STORMS" EntityType="Self.STORMS" />
+          <EntitySet Name="STORMSETTINGS" EntityType="Self.STORMSETTINGS" />
+          <EntitySet Name="STORMWEBSEARCH" EntityType="Self.STORMWEBSEARCH" />
+          <EntitySet Name="UserSetting" EntityType="Self.UserSetting" />
+          <EntitySet Name="ЗаявкаНаПрактику" EntityType="Self.ЗаявкаНаПрактику" />
+          <EntitySet Name="Компания" EntityType="Self.Компания" />
+          <EntitySet Name="Курс" EntityType="Self.Курс" />
+          <EntitySet Name="ОУ" EntityType="Self.ОУ" />
+          <EntitySet Name="Практика" EntityType="Self.Практика" />
+          <EntitySet Name="ПредставительКомпании" EntityType="Self.ПредставительКомпании" />
+          <EntitySet Name="ПредставительОУ" EntityType="Self.ПредставительОУ" />
+          <EntitySet Name="Студент" EntityType="Self.Студент" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+          <AssociationSet Name="STORMAC_FSTORMF_0" Association="Self.STORMAC_FSTORMF_0">
+            <End Role="STORMF" EntitySet="STORMF" />
+            <End Role="STORMAC" EntitySet="STORMAC" />
+          </AssociationSet>
+          <AssociationSet Name="STORMAC_FSTORMP_0" Association="Self.STORMAC_FSTORMP_0">
+            <End Role="STORMP" EntitySet="STORMP" />
+            <End Role="STORMAC" EntitySet="STORMAC" />
+          </AssociationSet>
+          <AssociationSet Name="STORMI_FSTORMAG_0" Association="Self.STORMI_FSTORMAG_0">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMI" EntitySet="STORMI" />
+          </AssociationSet>
+          <AssociationSet Name="STORMI_FSTORMAG_1" Association="Self.STORMI_FSTORMAG_1">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMI" EntitySet="STORMI" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLG_FSTORMAG_0" Association="Self.STORMLG_FSTORMAG_0">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMLG" EntitySet="STORMLG" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLG_FSTORMAG_1" Association="Self.STORMLG_FSTORMAG_1">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMLG" EntitySet="STORMLG" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLR_FSTORMAG_0" Association="Self.STORMLR_FSTORMAG_0">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMLR" EntitySet="STORMLR" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLR_FSTORMAG_1" Association="Self.STORMLR_FSTORMAG_1">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMLR" EntitySet="STORMLR" />
+          </AssociationSet>
+          <AssociationSet Name="STORMP_FSTORMAG_0" Association="Self.STORMP_FSTORMAG_0">
+            <End Role="STORMAG" EntitySet="STORMAG" />
+            <End Role="STORMP" EntitySet="STORMP" />
+          </AssociationSet>
+          <AssociationSet Name="STORMF_FSTORMS_0" Association="Self.STORMF_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMF" EntitySet="STORMF" />
+          </AssociationSet>
+          <AssociationSet Name="STORMFILTERDETAIL_FSTORMFILTERSETTING_0" Association="Self.STORMFILTERDETAIL_FSTORMFILTERSETTING_0">
+            <End Role="STORMFILTERSETTING" EntitySet="STORMFILTERSETTING" />
+            <End Role="STORMFILTERDETAIL" EntitySet="STORMFILTERDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="STORMFILTERLOOKUP_FSTORMFILTERSETTING_0" Association="Self.STORMFILTERLOOKUP_FSTORMFILTERSETTING_0">
+            <End Role="STORMFILTERSETTING" EntitySet="STORMFILTERSETTING" />
+            <End Role="STORMFILTERLOOKUP" EntitySet="STORMFILTERLOOKUP" />
+          </AssociationSet>
+          <AssociationSet Name="STORMWEBSEARCH_FSTORMFILTERSETTING_0" Association="Self.STORMWEBSEARCH_FSTORMFILTERSETTING_0">
+            <End Role="STORMFILTERSETTING" EntitySet="STORMFILTERSETTING" />
+            <End Role="STORMWEBSEARCH" EntitySet="STORMWEBSEARCH" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLA_FSTORMS_0" Association="Self.STORMLA_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLA" EntitySet="STORMLA" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLA_FSTORMS_1" Association="Self.STORMLA_FSTORMS_1">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLA" EntitySet="STORMLA" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLO_FSTORMS_0" Association="Self.STORMLO_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLO" EntitySet="STORMLO" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLO_FSTORMS_1" Association="Self.STORMLO_FSTORMS_1">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLO" EntitySet="STORMLO" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLV_FSTORMS_0" Association="Self.STORMLV_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLV" EntitySet="STORMLV" />
+          </AssociationSet>
+          <AssociationSet Name="STORMLV_FSTORMS_1" Association="Self.STORMLV_FSTORMS_1">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMLV" EntitySet="STORMLV" />
+          </AssociationSet>
+          <AssociationSet Name="STORMP_FSTORMS_0" Association="Self.STORMP_FSTORMS_0">
+            <End Role="STORMS" EntitySet="STORMS" />
+            <End Role="STORMP" EntitySet="STORMP" />
+          </AssociationSet>
+          <AssociationSet Name="Практика_FЗаявкаНаПрактику_0" Association="Self.Практика_FЗаявкаНаПрактику_0">
+            <End Role="ЗаявкаНаПрактику" EntitySet="ЗаявкаНаПрактику" />
+            <End Role="Практика" EntitySet="Практика" />
+          </AssociationSet>
+          <AssociationSet Name="Студент_FЗаявкаНаПрактику_0" Association="Self.Студент_FЗаявкаНаПрактику_0">
+            <End Role="ЗаявкаНаПрактику" EntitySet="ЗаявкаНаПрактику" />
+            <End Role="Студент" EntitySet="Студент" />
+          </AssociationSet>
+          <AssociationSet Name="Практика_FКомпания_0" Association="Self.Практика_FКомпания_0">
+            <End Role="Компания" EntitySet="Компания" />
+            <End Role="Практика" EntitySet="Практика" />
+          </AssociationSet>
+          <AssociationSet Name="ПредставительКомпании_FКомпания_0" Association="Self.ПредставительКомпании_FКомпания_0">
+            <End Role="Компания" EntitySet="Компания" />
+            <End Role="ПредставительКомпании" EntitySet="ПредставительКомпании" />
+          </AssociationSet>
+          <AssociationSet Name="Курс_FОУ_0" Association="Self.Курс_FОУ_0">
+            <End Role="ОУ" EntitySet="ОУ" />
+            <End Role="Курс" EntitySet="Курс" />
+          </AssociationSet>
+          <AssociationSet Name="Студент_FКурс_0" Association="Self.Студент_FКурс_0">
+            <End Role="Курс" EntitySet="Курс" />
+            <End Role="Студент" EntitySet="Студент" />
+          </AssociationSet>
+          <AssociationSet Name="ПредставительОУ_FОУ_0" Association="Self.ПредставительОУ_FОУ_0">
+            <End Role="ОУ" EntitySet="ОУ" />
+            <End Role="ПредставительОУ" EntitySet="ПредставительОУ" />
+          </AssociationSet>
+          <AssociationSet Name="Студент_FПрактика_0" Association="Self.Студент_FПрактика_0">
+            <End Role="Практика" EntitySet="Практика" />
+            <End Role="Студент" EntitySet="Студент" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище HSEModelContainer" CdmEntityContainer="HSEEntities">
+          <EntitySetMapping Name="ApplicationLog">
+            <EntityTypeMapping TypeName="HSEModel.ApplicationLog">
+              <MappingFragment StoreEntitySet="ApplicationLog">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="AppDomainName" ColumnName="AppDomainName" />
+                <ScalarProperty Name="ProcessId" ColumnName="ProcessId" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="ThreadName" ColumnName="ThreadName" />
+                <ScalarProperty Name="Win32ThreadId" ColumnName="Win32ThreadId" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="FormattedMessage" ColumnName="FormattedMessage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session">
+            <EntityTypeMapping TypeName="HSEModel.Session">
+              <MappingFragment StoreEntitySet="Session">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+                <ScalarProperty Name="StartedAt" ColumnName="StartedAt" />
+                <ScalarProperty Name="LastAccess" ColumnName="LastAccess" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMAC">
+            <EntityTypeMapping TypeName="HSEModel.STORMAC">
+              <MappingFragment StoreEntitySet="STORMAC">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="TypeAccess" ColumnName="TypeAccess" />
+                <ScalarProperty Name="Filter_m0" ColumnName="Filter_m0" />
+                <ScalarProperty Name="Permition_m0" ColumnName="Permition_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMAdvLimit">
+            <EntityTypeMapping TypeName="HSEModel.STORMAdvLimit">
+              <MappingFragment StoreEntitySet="STORMAdvLimit">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="HotKeyData" ColumnName="HotKeyData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMAG">
+            <EntityTypeMapping TypeName="HSEModel.STORMAG">
+              <MappingFragment StoreEntitySet="STORMAG">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+                <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+                <ScalarProperty Name="IsRole" ColumnName="IsRole" />
+                <ScalarProperty Name="ConnString" ColumnName="ConnString" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMF">
+            <EntityTypeMapping TypeName="HSEModel.STORMF">
+              <MappingFragment StoreEntitySet="STORMF">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="FilterText" ColumnName="FilterText" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FilterTypeNView" ColumnName="FilterTypeNView" />
+                <ScalarProperty Name="Subject_m0" ColumnName="Subject_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMFILTERDETAIL">
+            <EntityTypeMapping TypeName="HSEModel.STORMFILTERDETAIL">
+              <MappingFragment StoreEntitySet="STORMFILTERDETAIL">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="DataObjectView" ColumnName="DataObjectView" />
+                <ScalarProperty Name="ConnectMasterProp" ColumnName="ConnectMasterProp" />
+                <ScalarProperty Name="OwnerConnectProp" ColumnName="OwnerConnectProp" />
+                <ScalarProperty Name="FilterSetting_m0" ColumnName="FilterSetting_m0" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMFILTERLOOKUP">
+            <EntityTypeMapping TypeName="HSEModel.STORMFILTERLOOKUP">
+              <MappingFragment StoreEntitySet="STORMFILTERLOOKUP">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="DataObjectType" ColumnName="DataObjectType" />
+                <ScalarProperty Name="Container" ColumnName="Container" />
+                <ScalarProperty Name="ContainerTag" ColumnName="ContainerTag" />
+                <ScalarProperty Name="FieldsToView" ColumnName="FieldsToView" />
+                <ScalarProperty Name="FilterSetting_m0" ColumnName="FilterSetting_m0" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMFILTERSETTING">
+            <EntityTypeMapping TypeName="HSEModel.STORMFILTERSETTING">
+              <MappingFragment StoreEntitySet="STORMFILTERSETTING">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DataObjectView" ColumnName="DataObjectView" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMI">
+            <EntityTypeMapping TypeName="HSEModel.STORMI">
+              <MappingFragment StoreEntitySet="STORMI">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="User_m0" ColumnName="User_m0" />
+                <ScalarProperty Name="Agent_m0" ColumnName="Agent_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMLA">
+            <EntityTypeMapping TypeName="HSEModel.STORMLA">
+              <MappingFragment StoreEntitySet="STORMLA">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="View_m0" ColumnName="View_m0" />
+                <ScalarProperty Name="Attribute_m0" ColumnName="Attribute_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMLG">
+            <EntityTypeMapping TypeName="HSEModel.STORMLG">
+              <MappingFragment StoreEntitySet="STORMLG">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Group_m0" ColumnName="Group_m0" />
+                <ScalarProperty Name="User_m0" ColumnName="User_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMLO">
+            <EntityTypeMapping TypeName="HSEModel.STORMLO">
+              <MappingFragment StoreEntitySet="STORMLO">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Class_m0" ColumnName="Class_m0" />
+                <ScalarProperty Name="Operation_m0" ColumnName="Operation_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMLR">
+            <EntityTypeMapping TypeName="HSEModel.STORMLR">
+              <MappingFragment StoreEntitySet="STORMLR">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Agent_m0" ColumnName="Agent_m0" />
+                <ScalarProperty Name="Role_m0" ColumnName="Role_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMLV">
+            <EntityTypeMapping TypeName="HSEModel.STORMLV">
+              <MappingFragment StoreEntitySet="STORMLV">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Class_m0" ColumnName="Class_m0" />
+                <ScalarProperty Name="View_m0" ColumnName="View_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMNETLOCKDATA">
+            <EntityTypeMapping TypeName="HSEModel.STORMNETLOCKDATA">
+              <MappingFragment StoreEntitySet="STORMNETLOCKDATA">
+                <ScalarProperty Name="LockKey" ColumnName="LockKey" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LockDate" ColumnName="LockDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMP">
+            <EntityTypeMapping TypeName="HSEModel.STORMP">
+              <MappingFragment StoreEntitySet="STORMP">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Subject_m0" ColumnName="Subject_m0" />
+                <ScalarProperty Name="Agent_m0" ColumnName="Agent_m0" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMS">
+            <EntityTypeMapping TypeName="HSEModel.STORMS">
+              <MappingFragment StoreEntitySet="STORMS">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IsAttribute" ColumnName="IsAttribute" />
+                <ScalarProperty Name="IsOperation" ColumnName="IsOperation" />
+                <ScalarProperty Name="IsView" ColumnName="IsView" />
+                <ScalarProperty Name="IsClass" ColumnName="IsClass" />
+                <ScalarProperty Name="SharedOper" ColumnName="SharedOper" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMSETTINGS">
+            <EntityTypeMapping TypeName="HSEModel.STORMSETTINGS">
+              <MappingFragment StoreEntitySet="STORMSETTINGS">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="User" ColumnName="User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORMWEBSEARCH">
+            <EntityTypeMapping TypeName="HSEModel.STORMWEBSEARCH">
+              <MappingFragment StoreEntitySet="STORMWEBSEARCH">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="PresentView" ColumnName="PresentView" />
+                <ScalarProperty Name="DetailedView" ColumnName="DetailedView" />
+                <ScalarProperty Name="FilterSetting_m0" ColumnName="FilterSetting_m0" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSetting">
+            <EntityTypeMapping TypeName="HSEModel.UserSetting">
+              <MappingFragment StoreEntitySet="UserSetting">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="ModuleGuid" ColumnName="ModuleGuid" />
+                <ScalarProperty Name="SettName" ColumnName="SettName" />
+                <ScalarProperty Name="SettGuid" ColumnName="SettGuid" />
+                <ScalarProperty Name="SettLastAccessTime" ColumnName="SettLastAccessTime" />
+                <ScalarProperty Name="StrVal" ColumnName="StrVal" />
+                <ScalarProperty Name="TxtVal" ColumnName="TxtVal" />
+                <ScalarProperty Name="IntVal" ColumnName="IntVal" />
+                <ScalarProperty Name="BoolVal" ColumnName="BoolVal" />
+                <ScalarProperty Name="GuidVal" ColumnName="GuidVal" />
+                <ScalarProperty Name="DecimalVal" ColumnName="DecimalVal" />
+                <ScalarProperty Name="DateTimeVal" ColumnName="DateTimeVal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ЗаявкаНаПрактику">
+            <EntityTypeMapping TypeName="HSEModel.ЗаявкаНаПрактику">
+              <MappingFragment StoreEntitySet="ЗаявкаНаПрактику">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Информация" ColumnName="Информация" />
+                <ScalarProperty Name="ДатаНачала" ColumnName="ДатаНачала" />
+                <ScalarProperty Name="ДатаКонца" ColumnName="ДатаКонца" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Компания">
+            <EntityTypeMapping TypeName="HSEModel.Компания">
+              <MappingFragment StoreEntitySet="Компания">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Информация" ColumnName="Информация" />
+                <ScalarProperty Name="Ссылка" ColumnName="Ссылка" />
+                <ScalarProperty Name="ПрактикиИнфо" ColumnName="ПрактикиИнфо" />
+                <ScalarProperty Name="Практики" ColumnName="Практики" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Курс">
+            <EntityTypeMapping TypeName="HSEModel.Курс">
+              <MappingFragment StoreEntitySet="Курс">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Названиее" ColumnName="Названиее" />
+                <ScalarProperty Name="Подготовка" ColumnName="Подготовка" />
+                <ScalarProperty Name="Год" ColumnName="Год" />
+                <ScalarProperty Name="ОУ" ColumnName="ОУ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ОУ">
+            <EntityTypeMapping TypeName="HSEModel.ОУ">
+              <MappingFragment StoreEntitySet="ОУ">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Информация" ColumnName="Информация" />
+                <ScalarProperty Name="Ссылка" ColumnName="Ссылка" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Практика">
+            <EntityTypeMapping TypeName="HSEModel.Практика">
+              <MappingFragment StoreEntitySet="Практика">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Информация" ColumnName="Информация" />
+                <ScalarProperty Name="ДатаНачала" ColumnName="ДатаНачала" />
+                <ScalarProperty Name="ДатаКонца" ColumnName="ДатаКонца" />
+                <ScalarProperty Name="Состояние" ColumnName="Состояние" />
+                <ScalarProperty Name="ЗаявкаНаПрактику" ColumnName="ЗаявкаНаПрактику" />
+                <ScalarProperty Name="Компания" ColumnName="Компания" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПредставительКомпании">
+            <EntityTypeMapping TypeName="HSEModel.ПредставительКомпании">
+              <MappingFragment StoreEntitySet="ПредставительКомпании">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Почта" ColumnName="Почта" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Должность" ColumnName="Должность" />
+                <ScalarProperty Name="Компания" ColumnName="Компания" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПредставительОУ">
+            <EntityTypeMapping TypeName="HSEModel.ПредставительОУ">
+              <MappingFragment StoreEntitySet="ПредставительОУ">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Почта" ColumnName="Почта" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Должность" ColumnName="Должность" />
+                <ScalarProperty Name="ОУ" ColumnName="ОУ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Студент">
+            <EntityTypeMapping TypeName="HSEModel.Студент">
+              <MappingFragment StoreEntitySet="Студент">
+                <ScalarProperty Name="primaryKey" ColumnName="primaryKey" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="НеобходимостьПрактики" ColumnName="НеобходимостьПрактики" />
+                <ScalarProperty Name="Подготовка" ColumnName="Подготовка" />
+                <ScalarProperty Name="Практика" ColumnName="Практика" />
+                <ScalarProperty Name="ЗаявкаНаПрактику" ColumnName="ЗаявкаНаПрактику" />
+                <ScalarProperty Name="Курс" ColumnName="Курс" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="HSEModel.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
