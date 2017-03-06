@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIS.MyApp
+namespace IIS.Product_47130
 {
     using System;
     using System.Xml;
@@ -53,7 +53,9 @@ namespace IIS.MyApp
         
         private string fДолжность;
         
-        private IIS.MyApp.Компания fКомпания;
+        private string fЛогин;
+        
+        private IIS.Product_47130.Компания fКомпания;
         
         // *** Start programmer edit section *** (ПредставительКомпании CustomMembers)
 
@@ -189,21 +191,51 @@ namespace IIS.MyApp
         }
         
         /// <summary>
+        /// Логин.
+        /// </summary>
+        // *** Start programmer edit section *** (ПредставительКомпании.Логин CustomAttributes)
+
+        // *** End programmer edit section *** (ПредставительКомпании.Логин CustomAttributes)
+        [StrLen(255)]
+        public virtual string Логин
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ПредставительКомпании.Логин Get start)
+
+                // *** End programmer edit section *** (ПредставительКомпании.Логин Get start)
+                string result = this.fЛогин;
+                // *** Start programmer edit section *** (ПредставительКомпании.Логин Get end)
+
+                // *** End programmer edit section *** (ПредставительКомпании.Логин Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ПредставительКомпании.Логин Set start)
+
+                // *** End programmer edit section *** (ПредставительКомпании.Логин Set start)
+                this.fЛогин = value;
+                // *** Start programmer edit section *** (ПредставительКомпании.Логин Set end)
+
+                // *** End programmer edit section *** (ПредставительКомпании.Логин Set end)
+            }
+        }
+        
+        /// <summary>
         /// Представитель компании.
         /// </summary>
         // *** Start programmer edit section *** (ПредставительКомпании.Компания CustomAttributes)
 
         // *** End programmer edit section *** (ПредставительКомпании.Компания CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Компания"})]
-        public virtual IIS.MyApp.Компания Компания
+        public virtual IIS.Product_47130.Компания Компания
         {
             get
             {
                 // *** Start programmer edit section *** (ПредставительКомпании.Компания Get start)
 
                 // *** End programmer edit section *** (ПредставительКомпании.Компания Get start)
-                IIS.MyApp.Компания result = this.fКомпания;
+                IIS.Product_47130.Компания result = this.fКомпания;
                 // *** Start programmer edit section *** (ПредставительКомпании.Компания Get end)
 
                 // *** End programmer edit section *** (ПредставительКомпании.Компания Get end)
@@ -234,7 +266,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ПредставительКомпанииE", typeof(IIS.MyApp.ПредставительКомпании));
+                    return ICSSoft.STORMNET.Information.GetView("ПредставительКомпанииE", typeof(IIS.Product_47130.ПредставительКомпании));
                 }
             }
             
@@ -245,7 +277,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ПредставительКомпанииL", typeof(IIS.MyApp.ПредставительКомпании));
+                    return ICSSoft.STORMNET.Information.GetView("ПредставительКомпанииL", typeof(IIS.Product_47130.ПредставительКомпании));
                 }
             }
         }

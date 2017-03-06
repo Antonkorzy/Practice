@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIS.MyApp
+namespace IIS.Product_47130
 {
     using System;
     using System.Xml;
@@ -48,7 +48,7 @@ namespace IIS.MyApp
         
         private byte fГод;
         
-        private IIS.MyApp.ОУ fОУ;
+        private IIS.Product_47130.ОУ fОУ;
         
         // *** Start programmer edit section *** (Курс CustomMembers)
 
@@ -156,16 +156,14 @@ namespace IIS.MyApp
         // *** Start programmer edit section *** (Курс.ОУ CustomAttributes)
 
         // *** End programmer edit section *** (Курс.ОУ CustomAttributes)
-        [PropertyStorage(new string[] {
-                "ОУ"})]
-        public virtual IIS.MyApp.ОУ ОУ
+        public virtual IIS.Product_47130.ОУ ОУ
         {
             get
             {
                 // *** Start programmer edit section *** (Курс.ОУ Get start)
 
                 // *** End programmer edit section *** (Курс.ОУ Get start)
-                IIS.MyApp.ОУ result = this.fОУ;
+                IIS.Product_47130.ОУ result = this.fОУ;
                 // *** Start programmer edit section *** (Курс.ОУ Get end)
 
                 // *** End programmer edit section *** (Курс.ОУ Get end)
@@ -196,7 +194,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("КурсE", typeof(IIS.MyApp.Курс));
+                    return ICSSoft.STORMNET.Information.GetView("КурсE", typeof(IIS.Product_47130.Курс));
                 }
             }
             
@@ -207,7 +205,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("КурсL", typeof(IIS.MyApp.Курс));
+                    return ICSSoft.STORMNET.Information.GetView("КурсL", typeof(IIS.Product_47130.Курс));
                 }
             }
         }

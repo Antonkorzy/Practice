@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIS.MyApp
+namespace IIS.Product_47130
 {
     using System;
     using System.Xml;
@@ -32,11 +32,14 @@ namespace IIS.MyApp
     [View("ЗаявкаНаПрактикуE", new string[] {
             "Информация as \'Информация\'",
             "ДатаНачала as \'Дата начала\'",
-            "ДатаКонца as \'Дата конца\'"})]
+            "ДатаКонца as \'Дата конца\'",
+            "ПредставительОУ as \'Представитель ОУ\'",
+            "ПредставительОУ.Имя as \'Имя\'"})]
     [View("ЗаявкаНаПрактикуL", new string[] {
             "Информация as \'Информация\'",
             "ДатаНачала as \'Дата начала\'",
-            "ДатаКонца as \'Дата конца\'"})]
+            "ДатаКонца as \'Дата конца\'",
+            "ПредставительОУ.Имя as \'Имя\'"})]
     public class ЗаявкаНаПрактику : ICSSoft.STORMNET.DataObject
     {
         
@@ -45,6 +48,8 @@ namespace IIS.MyApp
         private System.DateTime fДатаНачала;
         
         private System.DateTime fДатаКонца;
+        
+        private IIS.Product_47130.ПредставительОУ fПредставительОУ;
         
         // *** Start programmer edit section *** (ЗаявкаНаПрактику CustomMembers)
 
@@ -146,6 +151,38 @@ namespace IIS.MyApp
         }
         
         /// <summary>
+        /// Заявка на практику.
+        /// </summary>
+        // *** Start programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ CustomAttributes)
+
+        // *** End programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ CustomAttributes)
+        [NotNull()]
+        public virtual IIS.Product_47130.ПредставительОУ ПредставительОУ
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ Get start)
+
+                // *** End programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ Get start)
+                IIS.Product_47130.ПредставительОУ result = this.fПредставительОУ;
+                // *** Start programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ Get end)
+
+                // *** End programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ Set start)
+
+                // *** End programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ Set start)
+                this.fПредставительОУ = value;
+                // *** Start programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ Set end)
+
+                // *** End programmer edit section *** (ЗаявкаНаПрактику.ПредставительОУ Set end)
+            }
+        }
+        
+        /// <summary>
         /// Class views container.
         /// </summary>
         public class Views
@@ -158,7 +195,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ЗаявкаНаПрактикуE", typeof(IIS.MyApp.ЗаявкаНаПрактику));
+                    return ICSSoft.STORMNET.Information.GetView("ЗаявкаНаПрактикуE", typeof(IIS.Product_47130.ЗаявкаНаПрактику));
                 }
             }
             
@@ -169,7 +206,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ЗаявкаНаПрактикуL", typeof(IIS.MyApp.ЗаявкаНаПрактику));
+                    return ICSSoft.STORMNET.Information.GetView("ЗаявкаНаПрактикуL", typeof(IIS.Product_47130.ЗаявкаНаПрактику));
                 }
             }
         }

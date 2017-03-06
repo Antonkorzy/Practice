@@ -9,19 +9,15 @@
       <siteMapNode title="Лог" url="~/flexberry/LogList" />
       <siteMapNode title="Версии сборок" url="~/flexberry/Version" />
     </siteMapNode>
-    <siteMapNode title="Образовательные учреждения" roles="*" xmlns="">
-      <siteMapNode title="ОУ" description="" url="~/forms/OU/OUL.aspx" />
-      <siteMapNode title="Представители" description="" url="~/forms/PredstavitelOU/PredstavitelOUL.aspx" />
+    <siteMapNode title="MyApp" roles="*" xmlns="">
+      <siteMapNode title="Заявка на практику" description="" url="~/forms/ZayavkaNaPraktiku/ZayavkaNaPraktikuL.aspx" />
       <siteMapNode title="Курс" description="" url="~/forms/Kurs/KursL.aspx" />
-      <siteMapNode title="Студент" description="" url="~/forms/Student/StudentL.aspx" />
-    </siteMapNode>
-    <siteMapNode title="Компании" roles="*" xmlns="">
+      <siteMapNode title="Представитель компании" description="" url="~/forms/PredstavitelKompanii/PredstavitelKompaniiL.aspx" />
+      <siteMapNode title="Представитель ОУ" description="" url="~/forms/PredstavitelOU/PredstavitelOUL.aspx" />
+      <siteMapNode title="Практика" description="" url="~/forms/Praktika/PraktikaL.aspx" />
       <siteMapNode title="Компания" description="" url="~/forms/Kompaniya/KompaniyaL.aspx" />
-      <siteMapNode title="Представители" description="" url="~/forms/PredstavitelKompanii/PredstavitelKompaniiL.aspx" />
-    </siteMapNode>
-    <siteMapNode title="Практики" roles="*" xmlns="">
-      <siteMapNode title="Практики" description="" url="~/forms/Praktika/PraktikaL.aspx" />
-      <siteMapNode title="Заявки на практики" description="" url="~/forms/ZayavkaNaPraktiku/ZayavkaNaPraktikuL.aspx" />
+      <siteMapNode title="Студент" description="" url="~/forms/Student/StudentL.aspx" />
+      <siteMapNode title="ОУ" description="" url="~/forms/OU/OUL.aspx" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Reflection.AssemblyTitle("MyApp")]
-[assembly: System.Reflection.AssemblyDescription("MyApp")]
+[assembly: System.Reflection.AssemblyTitle("Product_47130")]
+[assembly: System.Reflection.AssemblyDescription("Product_47130")]
 [assembly: System.Reflection.AssemblyConfiguration("")]
 [assembly: System.Reflection.AssemblyCompany("IIS")]
-[assembly: System.Reflection.AssemblyProduct("MyApp")]
-[assembly: System.Reflection.AssemblyCopyright("(c) 2004-2015. IIS ZAO. All rights reserved.")]
+[assembly: System.Reflection.AssemblyProduct("Product_47130")]
+[assembly: System.Reflection.AssemblyCopyright("(c) 2004-2017. IIS ZAO. All rights reserved.")]
 [assembly: System.Reflection.AssemblyTrademark("")]
 [assembly: System.Reflection.AssemblyCulture("")]
 [assembly: System.Reflection.AssemblyVersion("1.0.0.1")]

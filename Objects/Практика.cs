@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIS.MyApp
+namespace IIS.Product_47130
 {
     using System;
     using System.Xml;
@@ -33,17 +33,17 @@ namespace IIS.MyApp
             "ДатаНачала as \'Дата начала\'",
             "ДатаКонца as \'Дата конца\'",
             "Состояние as \'Состояние\'",
-            "ЗаявкаНаПрактику as \'Заявка на практику\'",
-            "ЗаявкаНаПрактику.Информация as \'Информация\'",
             "Компания as \'Компания\'",
-            "Компания.Название as \'Название\'"})]
+            "Компания.Название as \'Название\'",
+            "ЗаявкаНаПрактику as \'Заявка на практику\'",
+            "ЗаявкаНаПрактику.Информация as \'Информация\'"})]
     [View("ПрактикаL", new string[] {
             "Информация as \'Информация\'",
             "ДатаНачала as \'Дата начала\'",
             "ДатаКонца as \'Дата конца\'",
             "Состояние as \'Состояние\'",
-            "ЗаявкаНаПрактику.Информация as \'Информация\'",
-            "Компания.Название as \'Название\'"})]
+            "Компания.Название as \'Название\'",
+            "ЗаявкаНаПрактику.Информация as \'Информация\'"})]
     public class Практика : ICSSoft.STORMNET.DataObject
     {
         
@@ -53,11 +53,11 @@ namespace IIS.MyApp
         
         private System.DateTime fДатаКонца;
         
-        private IIS.MyApp.СостояниеМероприятия fСостояние;
+        private IIS.Product_47130.СостояниеМероприятия fСостояние;
         
-        private IIS.MyApp.ЗаявкаНаПрактику fЗаявкаНаПрактику;
+        private IIS.Product_47130.Компания fКомпания;
         
-        private IIS.MyApp.Компания fКомпания;
+        private IIS.Product_47130.ЗаявкаНаПрактику fЗаявкаНаПрактику;
         
         // *** Start programmer edit section *** (Практика CustomMembers)
 
@@ -164,14 +164,14 @@ namespace IIS.MyApp
         // *** Start programmer edit section *** (Практика.Состояние CustomAttributes)
 
         // *** End programmer edit section *** (Практика.Состояние CustomAttributes)
-        public virtual IIS.MyApp.СостояниеМероприятия Состояние
+        public virtual IIS.Product_47130.СостояниеМероприятия Состояние
         {
             get
             {
                 // *** Start programmer edit section *** (Практика.Состояние Get start)
 
                 // *** End programmer edit section *** (Практика.Состояние Get start)
-                IIS.MyApp.СостояниеМероприятия result = this.fСостояние;
+                IIS.Product_47130.СостояниеМероприятия result = this.fСостояние;
                 // *** Start programmer edit section *** (Практика.Состояние Get end)
 
                 // *** End programmer edit section *** (Практика.Состояние Get end)
@@ -192,53 +192,17 @@ namespace IIS.MyApp
         /// <summary>
         /// Практика.
         /// </summary>
-        // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику CustomAttributes)
-
-        // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику CustomAttributes)
-        [PropertyStorage(new string[] {
-                "ЗаявкаНаПрактику"})]
-        [NotNull()]
-        public virtual IIS.MyApp.ЗаявкаНаПрактику ЗаявкаНаПрактику
-        {
-            get
-            {
-                // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику Get start)
-
-                // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику Get start)
-                IIS.MyApp.ЗаявкаНаПрактику result = this.fЗаявкаНаПрактику;
-                // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику Get end)
-
-                // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику Set start)
-
-                // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику Set start)
-                this.fЗаявкаНаПрактику = value;
-                // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику Set end)
-
-                // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику Set end)
-            }
-        }
-        
-        /// <summary>
-        /// Практика.
-        /// </summary>
         // *** Start programmer edit section *** (Практика.Компания CustomAttributes)
 
         // *** End programmer edit section *** (Практика.Компания CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Компания"})]
-        public virtual IIS.MyApp.Компания Компания
+        public virtual IIS.Product_47130.Компания Компания
         {
             get
             {
                 // *** Start programmer edit section *** (Практика.Компания Get start)
 
                 // *** End programmer edit section *** (Практика.Компания Get start)
-                IIS.MyApp.Компания result = this.fКомпания;
+                IIS.Product_47130.Компания result = this.fКомпания;
                 // *** Start programmer edit section *** (Практика.Компания Get end)
 
                 // *** End programmer edit section *** (Практика.Компания Get end)
@@ -257,6 +221,38 @@ namespace IIS.MyApp
         }
         
         /// <summary>
+        /// Практика.
+        /// </summary>
+        // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику CustomAttributes)
+
+        // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику CustomAttributes)
+        [NotNull()]
+        public virtual IIS.Product_47130.ЗаявкаНаПрактику ЗаявкаНаПрактику
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику Get start)
+
+                // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику Get start)
+                IIS.Product_47130.ЗаявкаНаПрактику result = this.fЗаявкаНаПрактику;
+                // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику Get end)
+
+                // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику Set start)
+
+                // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику Set start)
+                this.fЗаявкаНаПрактику = value;
+                // *** Start programmer edit section *** (Практика.ЗаявкаНаПрактику Set end)
+
+                // *** End programmer edit section *** (Практика.ЗаявкаНаПрактику Set end)
+            }
+        }
+        
+        /// <summary>
         /// Class views container.
         /// </summary>
         public class Views
@@ -269,7 +265,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ПрактикаE", typeof(IIS.MyApp.Практика));
+                    return ICSSoft.STORMNET.Information.GetView("ПрактикаE", typeof(IIS.Product_47130.Практика));
                 }
             }
             
@@ -280,7 +276,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ПрактикаL", typeof(IIS.MyApp.Практика));
+                    return ICSSoft.STORMNET.Information.GetView("ПрактикаL", typeof(IIS.Product_47130.Практика));
                 }
             }
         }

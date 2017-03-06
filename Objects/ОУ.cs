@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIS.MyApp
+namespace IIS.Product_47130
 {
     using System;
     using System.Xml;
@@ -159,7 +159,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ОУE", typeof(IIS.MyApp.ОУ));
+                    return ICSSoft.STORMNET.Information.GetView("ОУE", typeof(IIS.Product_47130.ОУ));
                 }
             }
             
@@ -170,7 +170,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ОУL", typeof(IIS.MyApp.ОУ));
+                    return ICSSoft.STORMNET.Information.GetView("ОУL", typeof(IIS.Product_47130.ОУ));
                 }
             }
         }

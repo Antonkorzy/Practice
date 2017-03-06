@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIS.MyApp
+namespace IIS.Product_47130
 {
     using System;
     using System.Xml;
@@ -32,19 +32,19 @@ namespace IIS.MyApp
             "ФИО as \'ФИО\'",
             "НеобходимостьПрактики as \'Необходимость практики\'",
             "Подготовка as \'Подготовка\'",
-            "Практика as \'Практика\'",
-            "Практика.Информация as \'Информация\'",
+            "Курс as \'Курс\'",
+            "Курс.Названиее as \'Названиее\'",
             "ЗаявкаНаПрактику as \'Заявка на практику\'",
             "ЗаявкаНаПрактику.Информация as \'Информация\'",
-            "Курс as \'Курс\'",
-            "Курс.Названиее as \'Названиее\'"})]
+            "Практика as \'Практика\'",
+            "Практика.Информация as \'Информация\'"})]
     [View("СтудентL", new string[] {
             "ФИО as \'ФИО\'",
             "НеобходимостьПрактики as \'Необходимость практики\'",
             "Подготовка as \'Подготовка\'",
-            "Практика.Информация as \'Информация\'",
+            "Курс.Названиее as \'Названиее\'",
             "ЗаявкаНаПрактику.Информация as \'Информация\'",
-            "Курс.Названиее as \'Названиее\'"})]
+            "Практика.Информация as \'Информация\'"})]
     public class Студент : ICSSoft.STORMNET.DataObject
     {
         
@@ -54,11 +54,11 @@ namespace IIS.MyApp
         
         private string fПодготовка;
         
-        private IIS.MyApp.Практика fПрактика;
+        private IIS.Product_47130.Курс fКурс;
         
-        private IIS.MyApp.ЗаявкаНаПрактику fЗаявкаНаПрактику;
+        private IIS.Product_47130.ЗаявкаНаПрактику fЗаявкаНаПрактику;
         
-        private IIS.MyApp.Курс fКурс;
+        private IIS.Product_47130.Практика fПрактика;
         
         // *** Start programmer edit section *** (Студент CustomMembers)
 
@@ -164,33 +164,32 @@ namespace IIS.MyApp
         /// <summary>
         /// Студент.
         /// </summary>
-        // *** Start programmer edit section *** (Студент.Практика CustomAttributes)
+        // *** Start programmer edit section *** (Студент.Курс CustomAttributes)
 
-        // *** End programmer edit section *** (Студент.Практика CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Практика"})]
-        public virtual IIS.MyApp.Практика Практика
+        // *** End programmer edit section *** (Студент.Курс CustomAttributes)
+        [NotNull()]
+        public virtual IIS.Product_47130.Курс Курс
         {
             get
             {
-                // *** Start programmer edit section *** (Студент.Практика Get start)
+                // *** Start programmer edit section *** (Студент.Курс Get start)
 
-                // *** End programmer edit section *** (Студент.Практика Get start)
-                IIS.MyApp.Практика result = this.fПрактика;
-                // *** Start programmer edit section *** (Студент.Практика Get end)
+                // *** End programmer edit section *** (Студент.Курс Get start)
+                IIS.Product_47130.Курс result = this.fКурс;
+                // *** Start programmer edit section *** (Студент.Курс Get end)
 
-                // *** End programmer edit section *** (Студент.Практика Get end)
+                // *** End programmer edit section *** (Студент.Курс Get end)
                 return result;
             }
             set
             {
-                // *** Start programmer edit section *** (Студент.Практика Set start)
+                // *** Start programmer edit section *** (Студент.Курс Set start)
 
-                // *** End programmer edit section *** (Студент.Практика Set start)
-                this.fПрактика = value;
-                // *** Start programmer edit section *** (Студент.Практика Set end)
+                // *** End programmer edit section *** (Студент.Курс Set start)
+                this.fКурс = value;
+                // *** Start programmer edit section *** (Студент.Курс Set end)
 
-                // *** End programmer edit section *** (Студент.Практика Set end)
+                // *** End programmer edit section *** (Студент.Курс Set end)
             }
         }
         
@@ -200,16 +199,14 @@ namespace IIS.MyApp
         // *** Start programmer edit section *** (Студент.ЗаявкаНаПрактику CustomAttributes)
 
         // *** End programmer edit section *** (Студент.ЗаявкаНаПрактику CustomAttributes)
-        [PropertyStorage(new string[] {
-                "ЗаявкаНаПрактику"})]
-        public virtual IIS.MyApp.ЗаявкаНаПрактику ЗаявкаНаПрактику
+        public virtual IIS.Product_47130.ЗаявкаНаПрактику ЗаявкаНаПрактику
         {
             get
             {
                 // *** Start programmer edit section *** (Студент.ЗаявкаНаПрактику Get start)
 
                 // *** End programmer edit section *** (Студент.ЗаявкаНаПрактику Get start)
-                IIS.MyApp.ЗаявкаНаПрактику result = this.fЗаявкаНаПрактику;
+                IIS.Product_47130.ЗаявкаНаПрактику result = this.fЗаявкаНаПрактику;
                 // *** Start programmer edit section *** (Студент.ЗаявкаНаПрактику Get end)
 
                 // *** End programmer edit section *** (Студент.ЗаявкаНаПрактику Get end)
@@ -230,34 +227,31 @@ namespace IIS.MyApp
         /// <summary>
         /// Студент.
         /// </summary>
-        // *** Start programmer edit section *** (Студент.Курс CustomAttributes)
+        // *** Start programmer edit section *** (Студент.Практика CustomAttributes)
 
-        // *** End programmer edit section *** (Студент.Курс CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Курс"})]
-        [NotNull()]
-        public virtual IIS.MyApp.Курс Курс
+        // *** End programmer edit section *** (Студент.Практика CustomAttributes)
+        public virtual IIS.Product_47130.Практика Практика
         {
             get
             {
-                // *** Start programmer edit section *** (Студент.Курс Get start)
+                // *** Start programmer edit section *** (Студент.Практика Get start)
 
-                // *** End programmer edit section *** (Студент.Курс Get start)
-                IIS.MyApp.Курс result = this.fКурс;
-                // *** Start programmer edit section *** (Студент.Курс Get end)
+                // *** End programmer edit section *** (Студент.Практика Get start)
+                IIS.Product_47130.Практика result = this.fПрактика;
+                // *** Start programmer edit section *** (Студент.Практика Get end)
 
-                // *** End programmer edit section *** (Студент.Курс Get end)
+                // *** End programmer edit section *** (Студент.Практика Get end)
                 return result;
             }
             set
             {
-                // *** Start programmer edit section *** (Студент.Курс Set start)
+                // *** Start programmer edit section *** (Студент.Практика Set start)
 
-                // *** End programmer edit section *** (Студент.Курс Set start)
-                this.fКурс = value;
-                // *** Start programmer edit section *** (Студент.Курс Set end)
+                // *** End programmer edit section *** (Студент.Практика Set start)
+                this.fПрактика = value;
+                // *** Start programmer edit section *** (Студент.Практика Set end)
 
-                // *** End programmer edit section *** (Студент.Курс Set end)
+                // *** End programmer edit section *** (Студент.Практика Set end)
             }
         }
         
@@ -274,7 +268,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("СтудентE", typeof(IIS.MyApp.Студент));
+                    return ICSSoft.STORMNET.Information.GetView("СтудентE", typeof(IIS.Product_47130.Студент));
                 }
             }
             
@@ -285,7 +279,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("СтудентL", typeof(IIS.MyApp.Студент));
+                    return ICSSoft.STORMNET.Information.GetView("СтудентL", typeof(IIS.Product_47130.Студент));
                 }
             }
         }

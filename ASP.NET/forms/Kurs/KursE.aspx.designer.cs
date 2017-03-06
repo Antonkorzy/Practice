@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIS.MyApp {
+namespace IIS.Product_47130 {
     
     /// <summary>
     /// КурсE class.

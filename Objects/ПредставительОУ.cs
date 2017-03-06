@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIS.MyApp
+namespace IIS.Product_47130
 {
     using System;
     using System.Xml;
@@ -53,7 +53,9 @@ namespace IIS.MyApp
         
         private string fДолжность;
         
-        private IIS.MyApp.ОУ fОУ;
+        private string fЛогин;
+        
+        private IIS.Product_47130.ОУ fОУ;
         
         // *** Start programmer edit section *** (ПредставительОУ CustomMembers)
 
@@ -189,21 +191,51 @@ namespace IIS.MyApp
         }
         
         /// <summary>
+        /// Логин.
+        /// </summary>
+        // *** Start programmer edit section *** (ПредставительОУ.Логин CustomAttributes)
+
+        // *** End programmer edit section *** (ПредставительОУ.Логин CustomAttributes)
+        [StrLen(255)]
+        public virtual string Логин
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ПредставительОУ.Логин Get start)
+
+                // *** End programmer edit section *** (ПредставительОУ.Логин Get start)
+                string result = this.fЛогин;
+                // *** Start programmer edit section *** (ПредставительОУ.Логин Get end)
+
+                // *** End programmer edit section *** (ПредставительОУ.Логин Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ПредставительОУ.Логин Set start)
+
+                // *** End programmer edit section *** (ПредставительОУ.Логин Set start)
+                this.fЛогин = value;
+                // *** Start programmer edit section *** (ПредставительОУ.Логин Set end)
+
+                // *** End programmer edit section *** (ПредставительОУ.Логин Set end)
+            }
+        }
+        
+        /// <summary>
         /// Представитель ОУ.
         /// </summary>
         // *** Start programmer edit section *** (ПредставительОУ.ОУ CustomAttributes)
 
         // *** End programmer edit section *** (ПредставительОУ.ОУ CustomAttributes)
-        [PropertyStorage(new string[] {
-                "ОУ"})]
-        public virtual IIS.MyApp.ОУ ОУ
+        public virtual IIS.Product_47130.ОУ ОУ
         {
             get
             {
                 // *** Start programmer edit section *** (ПредставительОУ.ОУ Get start)
 
                 // *** End programmer edit section *** (ПредставительОУ.ОУ Get start)
-                IIS.MyApp.ОУ result = this.fОУ;
+                IIS.Product_47130.ОУ result = this.fОУ;
                 // *** Start programmer edit section *** (ПредставительОУ.ОУ Get end)
 
                 // *** End programmer edit section *** (ПредставительОУ.ОУ Get end)
@@ -234,7 +266,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ПредставительОУE", typeof(IIS.MyApp.ПредставительОУ));
+                    return ICSSoft.STORMNET.Information.GetView("ПредставительОУE", typeof(IIS.Product_47130.ПредставительОУ));
                 }
             }
             
@@ -245,7 +277,7 @@ namespace IIS.MyApp
             {
                 get
                 {
-                    return ICSSoft.STORMNET.Information.GetView("ПредставительОУL", typeof(IIS.MyApp.ПредставительОУ));
+                    return ICSSoft.STORMNET.Information.GetView("ПредставительОУL", typeof(IIS.Product_47130.ПредставительОУ));
                 }
             }
         }
