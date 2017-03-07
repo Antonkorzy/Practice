@@ -9,15 +9,19 @@
       <siteMapNode title="Лог" url="~/flexberry/LogList" />
       <siteMapNode title="Версии сборок" url="~/flexberry/Version" />
     </siteMapNode>
-    <siteMapNode title="MyApp" roles="*" xmlns="">
-      <siteMapNode title="Заявка на практику" description="" url="~/forms/ZayavkaNaPraktiku/ZayavkaNaPraktikuL.aspx" />
-      <siteMapNode title="Курс" description="" url="~/forms/Kurs/KursL.aspx" />
-      <siteMapNode title="Представитель компании" description="" url="~/forms/PredstavitelKompanii/PredstavitelKompaniiL.aspx" />
-      <siteMapNode title="Представитель ОУ" description="" url="~/forms/PredstavitelOU/PredstavitelOUL.aspx" />
-      <siteMapNode title="Практика" description="" url="~/forms/Praktika/PraktikaL.aspx" />
-      <siteMapNode title="Компания" description="" url="~/forms/Kompaniya/KompaniyaL.aspx" />
-      <siteMapNode title="Студент" description="" url="~/forms/Student/StudentL.aspx" />
-      <siteMapNode title="ОУ" description="" url="~/forms/OU/OUL.aspx" />
+    <siteMapNode title="ОУ" roles="*" xmlns="">
+      <siteMapNode title="Образовательные учреждения" description="" url="~/forms/OU/OUL.aspx" />
+      <siteMapNode title="Представители ОУ" description="" url="~/forms/PredstavitelOU/PredstavitelOUL.aspx" />
+      <siteMapNode title="Курсы" description="" url="~/forms/Kurs/KursL.aspx" />
+      <siteMapNode title="Студенты" description="" url="~/forms/Student/StudentL.aspx" />
+      </siteMapNode>
+    <siteMapNode title="IT-Компании" roles="*" xmlns="">
+      <siteMapNode title="Компании" description="" url="~/forms/Kompaniya/KompaniyaL.aspx" />
+      <siteMapNode title="Представители компании" description="" url="~/forms/PredstavitelKompanii/PredstavitelKompaniiL.aspx" />
+      </siteMapNode>
+      <siteMapNode title="Проведение практик" roles="*" xmlns="">
+      <siteMapNode title="Практик" description="" url="~/forms/Praktika/PraktikaL.aspx" />
+      <siteMapNode title="Заявки на практику" description="" url="~/forms/ZayavkaNaPraktiku/ZayavkaNaPraktikuL.aspx" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>
